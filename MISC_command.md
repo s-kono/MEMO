@@ -32,7 +32,9 @@ $ gethostip www.example.com
 www.example.com 93.184.216.34 5DB8D822
 $ gethostip -x www.example.com
 5DB8D822
-$ echo 5DB8D822 | perl -pe 's/(..)/$1\n/g' | while read a; do echo "obase=10; ibase=16; ${a}" | bc; done | perl -pe 's/\n/./' | sed 's/.$//'; echo
+$ echo 5DB8D822 | perl -pe 's/(..)/$1\n/g' \
+  | while read a; do echo "obase=10; ibase=16; ${a}" | bc; done \
+  | perl -pe 's/\n/./' | sed 's/.$//'; echo
 93.184.216.34
 $
 $ dig +short amazon.com
@@ -97,14 +99,16 @@ $ snmpbulkwalk -v2c -c ${community} localhost UCD-SNMP-MIB::extEntry
 
 ```sh
 $ ssh -gL 13389:windows.local:3389 -p 1022 user@home.local
-$ ssh -oConnectTimeout=15 -oBatchMode=yes -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oCheckHostIP=no common.local
+$ ssh -oConnectTimeout=15 -oBatchMode=yes -oStrictHostKeyChecking=no \
+      -oUserKnownHostsFile=/dev/null -oCheckHostIP=no \
+      common.local
 ```
 
 
 ### MISC
 
 ```sh
-$ LANG=C /bin/df --portability
+$ LANG=C df --portability
 ```
 
 
