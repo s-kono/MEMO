@@ -53,6 +53,32 @@ $ gethostip -d www.amazon.com
 ```
 
 
+### gpg
+
+```sh
+$ gpg --recv-keys 7E045F8D
+$ gpg --verify unbound-1.7.1.tar.gz.asc
+$
+$ gpg --keyserver hkp://keys.gnupg.net/ --recv-keys AA65421D
+$ gpg --verify Python-3.6.5.tgz.asc
+$ gpg --list-public-keys AA65421D
+$ LANG=C gpg --fingerprint AA65421D
+$ gpg -o AA65421D.pgp --export AA65421D
+```
+
+```sh
+$ curl -sSO https://data.iana.org/root-anchors/old/icann.pgp
+$ gpg --import icann.pgp
+$ gpg --fingerprint dnssec@iana.org
+$ LANG=C gpg --fingerprint dnssec@iana.org
+pub   1024D/0F6C91D2 2007-12-01
+      Key fingerprint = 2FBB 91BC AAEE 0ABE 1F80  31C7 D1AF BCE0 0F6C 91D2
+uid                  DNSSEC Manager <dnssec@iana.org>
+sub   2048g/1975679E 2007-12-01
+
+```
+
+
 ### ldapsearch
 
 ```sh
@@ -102,6 +128,16 @@ $ ssh -gL 13389:windows.local:3389 -p 1022 user@home.local
 $ ssh -oConnectTimeout=15 -oBatchMode=yes -oStrictHostKeyChecking=no \
       -oUserKnownHostsFile=/dev/null -oCheckHostIP=no \
       common.local
+```
+
+
+### sudo
+
+```sh
+$ sudo -i
+$ sudo crontab -l -u root
+$ sudo sh -c "dig +noall +answer +add @d.root-servers.net . ns > conf/named.root"
+$ dig +noall +answer +add @d.root-servers.net . ns | sudo tee conf/named.root
 ```
 
 
