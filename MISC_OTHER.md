@@ -35,3 +35,33 @@
 | &amp;#95; | %5F | _ | |
 | &amp;#96; | %60 | ` | |
 
+### URL エンコード / デコード
+
+```sh
+$ echo -n あいうえお | nkf -WwMQ | tr = %; echo
+%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A
+$
+$ echo -n あいうえお | jq -s -R -r @uri
+%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A
+$
+$ echo -n あいうえお | ruby -r uri -ne 'print URI.escape $_'; echo
+%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A
+$
+$ curl -vsS http://localhost/api-get  -d "a=1" --data-urlencode "word=あいうえお" --get 2>&1 | grep "> .*HTTP"
+> GET /api?a=1&word=%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A HTTP/1.1
+$
+$ curl -vsS http://localhost/api-post -d "a=1" --data-urlencode "word=あいうえお"       2>&1 | grep "> .*HTTP"
+> POST /api-post HTTP/1.1
+$
+$ curl -s '' -d "a=1" --data-urlencode "word=あいうえお" --get -w '%{url_effective}\n'
+/?a=1&word=%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A
+```
+
+```sh
+$ echo -n %E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A | nkf --url-input; echo
+あいうえお
+$
+$ echo -n %E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A | ruby -r uri -ne 'print URI.unescape $_'; echo
+あいうえお
+```
+

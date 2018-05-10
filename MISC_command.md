@@ -9,6 +9,42 @@ $ curl -c ${cookie} -b ${cookie} -o ${output} -sSk https://localhost/
 $ curl -sS -O http://localhost/123.txt
 ```
 
+```sh
+$ curl -s http://localhost/     -o /dev/null -w '%{http_code}\n'
+200
+$ curl -s http://localhost/hoge -o /dev/null -w '%{http_code}\n'
+404
+```
+
+```sh
+$ curl -sS https://pypi.org/ -o /dev/null -w '%{http_code}\n' --sslv2
+000
+curl: (35) SSL version range is not valid.
+$
+$ curl -sS https://pypi.org/ -o /dev/null -w '%{http_code}\n' --sslv3
+000
+curl: (35) Cannot communicate securely with peer: no common encryption algorithm(s).
+$
+$ curl -sS https://pypi.org/ -o /dev/null -w '%{http_code}\n' --tlsv1.0
+000
+curl: (35) Peer reports incompatible or unsupported protocol version.
+$
+$ curl -sS https://pypi.org/ -o /dev/null -w '%{http_code}\n' --tlsv1.1
+000
+curl: (35) Peer reports incompatible or unsupported protocol version.
+$
+$ curl -sS https://pypi.org/ -o /dev/null -w '%{http_code}\n' --tlsv1.2
+200
+```
+
+```sh
+$ curl -vsS http://localhost/api-post -d "a=1" --data-urlencode "word=あいうえお"       2>&1 | grep "> .*HTTP"
+> POST /api-post HTTP/1.1
+$
+$ curl -vsS http://localhost/api-get  -d "a=1" --data-urlencode "word=あいうえお" --get 2>&1 | grep "> .*HTTP"
+> GET /api?a=1&word=%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A HTTP/1.1
+```
+
 
 ### dmidecode
 
