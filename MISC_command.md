@@ -134,6 +134,36 @@ $ nmap -sU -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
 ```
 
 
+### rsync
+
+```sh
+$ rsync -azvn --delete --force --ignore-errors -e ssh /from/dir/ target.local:/to/dir/
+$ rsync -azv  --delete --force --ignore-errors -e ssh /from/dir/ target.local:/to/dir/
+$
+$ rsync -az -e ssh /from/dir/  user@target.local:/to/dir/
+$ rsync -az -e ssh /from/dir   user@target.local:/to/dir/
+$ rsync -az -e ssh /from/dir/  user@target.local:/to/dir
+$ rsync -az -e ssh /from/dir/* user@target.local:/to/dir/
+$
+$ rsync -az -e "ssh -p 10022" /from/dir/ target.local:/to/dir/
+$ rsync -lptz -e ssh /from/dir/ target.local:/to/dir/
+```
+
+```sh
+$ rsync -azv -e \
+ "ssh -i/user/id_rsa -oConnectTimeout=3 -oBatchMode=yes -oStrictHostKeyChecking=no" \
+ /from/dir/ user@target.local:/to/dir/
+$
+$ rsync -azv -e ssh \
+ --exclude a/cache/ --exclude "*/.git/" --exclude "*.key" \
+ /from/dir/ target.local:/to/dir/
+$
+$ rsync -azv -e ssh --copy-links   /from/dir/ target.local:/to/dir/
+$ rsync -azv -e ssh --checksum     /from/dir/ target.local:/to/dir/
+$ rsync -azv -e ssh --bwlimit=4096 /from/dir/ target.local:/to/dir/
+```
+
+
 ### snmp
 
 ```sh
