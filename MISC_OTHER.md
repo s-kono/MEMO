@@ -39,7 +39,7 @@
 ### 16 進ダンプ
 
 ```sh
-$ cat /etc/hosts | hexdump -C
+$ cat /etc/hosts | hexdump -Cv
 00000000  31 32 37 2e 30 2e 30 2e  31 20 20 20 6c 6f 63 61  |127.0.0.1   loca|
 00000010  6c 68 6f 73 74 20 6c 6f  63 61 6c 68 6f 73 74 2e  |lhost localhost.|
 00000020  6c 6f 63 61 6c 64 6f 6d  61 69 6e 20 6c 6f 63 61  |localdomain loca|
@@ -52,7 +52,7 @@ $ cat /etc/hosts | hexdump -C
 00000090  2e 6c 6f 63 61 6c 64 6f  6d 61 69 6e 36 0a        |.localdomain6.|
 0000009e
 $
-$ cat /etc/hosts | od -Ax -t x1z
+$ cat /etc/hosts | od -v -Ax -t x1z
 000000 31 32 37 2e 30 2e 30 2e 31 20 20 20 6c 6f 63 61  >127.0.0.1   loca<
 000010 6c 68 6f 73 74 20 6c 6f 63 61 6c 68 6f 73 74 2e  >lhost localhost.<
 000020 6c 6f 63 61 6c 64 6f 6d 61 69 6e 20 6c 6f 63 61  >localdomain loca<
@@ -65,7 +65,7 @@ $ cat /etc/hosts | od -Ax -t x1z
 000090 2e 6c 6f 63 61 6c 64 6f 6d 61 69 6e 36 0a        >.localdomain6.<
 00009e
 $
-$  cat /etc/hosts | od -Ax -t x1c
+$  cat /etc/hosts | od -v -Ax -t x1c
 000000  31  32  37  2e  30  2e  30  2e  31  20  20  20  6c  6f  63  61
          1   2   7   .   0   .   0   .   1               l   o   c   a
 000010  6c  68  6f  73  74  20  6c  6f  63  61  6c  68  6f  73  74  2e
@@ -88,7 +88,7 @@ $  cat /etc/hosts | od -Ax -t x1c
          .   l   o   c   a   l   d   o   m   a   i   n   6  \n
 00009e
 $
-$ cat /etc/hosts | od -Ax -t x1cz
+$ cat /etc/hosts | od -v -Ax -t x1cz
 000000  31  32  37  2e  30  2e  30  2e  31  20  20  20  6c  6f  63  61
          1   2   7   .   0   .   0   .   1               l   o   c   a  >127.0.0.1   loca<
 000010  6c  68  6f  73  74  20  6c  6f  63  61  6c  68  6f  73  74  2e
