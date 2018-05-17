@@ -3,12 +3,12 @@
 | 数値文字参照(10進) | URLエンコード(16進) | | 文字実体参照 |
 |---|---|---|---|
 |   |   |   |   |
-|           | %09 | <TAB> | |
-|           | %0A | <LineFeed> | |
+|           | %09 | &lt;TAB&gt; | |
+|           | %0A | &lt;LineFeed&gt; | |
 |   |   |   |   |
-|           | %0D | <CarriageReturn> | |
+|           | %0D | &lt;CarriageReturn&gt; | |
 |   |   |   |   |
-| &amp;#32; | %20 | <Space> | |
+| &amp;#32; | %20 | &lt;Space&gt; | |
 | &amp;#33; | %21 | ! | |
 | &amp;#34; | %22 | " | &amp;quot; |
 | &amp;#35; | %23 | # | |
