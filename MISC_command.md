@@ -114,6 +114,12 @@ sub   2048g/1975679E 2007-12-01
 
 ```
 
+```sh
+http://knoppix.net/wiki/Downloading_FAQ#What_are_these_asc_files.3F
+
+$ gpg --keyserver pool.sks-keyservers.net --search-keys "Klaus Knopper"
+```
+
 
 ### ldapsearch
 
