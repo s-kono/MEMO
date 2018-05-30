@@ -122,7 +122,7 @@ https://help.ubuntu.com/community/VerifyIsoHowto#Obtain_the_public_key_from_the_
 $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0xFBB75451 0xEFE21092
 ```
 
-``sh
+```sh
 $ gzip -d git-2.17.1.tar.gz
 $ gpg --verify git-2.17.1.tar.sign git-2.17.1.tar
 ```
