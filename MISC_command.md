@@ -96,6 +96,8 @@ $ gpg --recv-keys 7E045F8D
 $ gpg --verify unbound-1.7.1.tar.gz.asc
 $
 $ gpg --keyserver hkp://keys.gnupg.net/ --recv-keys AA65421D
+$ http_proxy=http://proxy.example.com:8080/ gpg --keyserver hkp://keys.gnupg.net/ --recv-keys AA65421D
+$
 $ gpg --verify Python-3.6.5.tgz.asc
 $ gpg --list-public-keys AA65421D
 $ LANG=C gpg --fingerprint AA65421D
@@ -112,6 +114,17 @@ pub   1024D/0F6C91D2 2007-12-01
 uid                  DNSSEC Manager <dnssec@iana.org>
 sub   2048g/1975679E 2007-12-01
 
+```
+
+```sh
+https://help.ubuntu.com/community/VerifyIsoHowto#Obtain_the_public_key_from_the_Ubuntu_key_server
+
+$ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0xFBB75451 0xEFE21092
+```
+
+``sh
+$ gzip -d git-2.17.1.tar.gz
+$ gpg --verify git-2.17.1.tar.sign git-2.17.1.tar
 ```
 
 ```sh
@@ -218,5 +231,4 @@ $ dig +noall +answer +add @d.root-servers.net . ns | sudo tee conf/named.root
 ```sh
 $ LANG=C df --portability
 ```
-
 
