@@ -226,6 +226,30 @@ $ dig +noall +answer +add @d.root-servers.net . ns | sudo tee conf/named.root
 ```
 
 
+### tcpdump
+
+```sh
+$ sudo tcpdump -lnni eth1 -p    dst port 53 and dst  169.254.0.100
+$ sudo tcpdump -lnni eth1 -p -v src port 53 and src  169.254.0.100
+$ sudo tcpdump -lnni eth1           port 53 and host 169.254.0.101
+
+$ sudo tcpdump -lnni eth0 -e        -v port bootps
+$ sudo tcpdump -lnni eth0 -e -X -s0 -v port bootps
+
+$ sudo tcpdump -lnni eth1 -p           dst port 80
+$ sudo tcpdump -lnni eth1 -p -A -s0 -v src port 80
+$ sudo tcpdump -lnni eth1 -p -X -s0 -v dst port 80
+
+#HTTP:GET
+$ sudo tcpdump -lnni eth1 -p -s0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420' and dst port 80
+#HTTP:POST
+$ sudo tcpdump -lnni eth1 -p -s0 -A 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354' and dst port 80
+
+$ sudo tcpdump -lnni eth0 -p -s0 port 25 -w /var/tmp/dumpfile
+$ sudo tcpdump -r /var/tmp/dumpfile -X
+```
+
+
 ### MISC
 
 ```sh
