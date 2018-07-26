@@ -48,6 +48,19 @@ lrwxrwxrwx 1 root root    18 2018-05-06 19:47 /bin/python36 -> /usr/bin/python3.
 lrwxrwxrwx 1 root root    18 2018-05-06 19:47 /usr/bin/python36 -> /usr/bin/python3.6*
 ```
 
+### Ubuntu16.04
+
+```sh
+$ ls -l /usr/bin/python* | grep -v config
+lrwxrwxrwx 1 root root       9 2017-11-24 09:52 /usr/bin/python -> python2.7
+lrwxrwxrwx 1 root root       9 2017-11-24 09:52 /usr/bin/python2 -> python2.7
+-rwxr-xr-x 1 root root 3492656 2017-12-05 03:14 /usr/bin/python2.7
+lrwxrwxrwx 1 root root       9 2018-01-17 07:01 /usr/bin/python3 -> python3.5
+-rwxr-xr-x 2 root root 4464400 2017-11-29 01:53 /usr/bin/python3.5
+-rwxr-xr-x 2 root root 4464400 2017-11-29 01:53 /usr/bin/python3.5m
+lrwxrwxrwx 1 root root      10 2018-01-17 07:01 /usr/bin/python3m -> python3.5m
+```
+
 ### 2 to 3 変換
 
 ```sh
