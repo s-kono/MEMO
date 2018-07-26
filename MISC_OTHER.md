@@ -1,4 +1,4 @@
-
+# x
 
 | 数値文字参照(10進) | URLエンコード(16進) | | 文字実体参照 |
 |---|---|---|---|
@@ -100,8 +100,7 @@
 |           | %79 | y | |
 |           | %7A | z | |
 
-
-### 16 進ダンプ
+## 16 進ダンプ
 
 ```sh
 $ cat /etc/hosts | hexdump -Cv
@@ -201,8 +200,7 @@ $ cat /etc/hosts | xxd -g 1 -u
 0000090: 2E 6C 6F 63 61 6C 64 6F 6D 61 69 6E 36 0A        .localdomain6.
 ```
 
-
-### URL エンコード / デコード
+## URL エンコード / デコード
 
 ```sh
 $ echo -n あいうえお | nkf -WwMQ | tr = %; echo
@@ -231,4 +229,3 @@ $
 $ echo -n %E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A | ruby -r uri -ne 'print URI.unescape $_'; echo
 あいうえお
 ```
-
