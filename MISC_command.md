@@ -1,10 +1,12 @@
+# x
 
-### curl
+## curl
 
 ```sh
 $ curl --header "Host: www.example.com" http://10.0.1.2/
 $ curl --resolve www.example.com:80:10.0.1.2 http://www.example.com/
-$ curl --compressed --retry 2 --retry-delay 30 --max-time 10 -sSL -A "${UserAgent}" http://www.example.jp/
+$ curl --compressed --retry 2 --retry-delay 30 --max-time 10 \
+   -sSL -A "${UserAgent}" http://www.example.jp/
 $ curl -c ${cookie} -b ${cookie} -o ${output} -sSk https://localhost/
 $ curl -sS -O http://localhost/123.txt
 ```
@@ -45,18 +47,16 @@ $ curl -vsS http://localhost/api-get  -d "a=1" --data-urlencode "word=あいう�
 > GET /api?a=1&word=%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A HTTP/1.1
 ```
 
-
-### dmidecode
+## dmidecode
 
 ```sh
 $ sudo dmidecode
 $ sudo dmidecode -t processor
 $ sudo dmidecode -t memory
+   -t, --type TYPE        Only display the entries of given type
 ```
 
-
-### gethostip
-
+## gethostip
 
 ```sh
 $ gethostip 10.0.3.100
@@ -88,8 +88,7 @@ $ gethostip -d www.amazon.com
 13.33.215.239
 ```
 
-
-### gpg
+## gpg
 
 ```sh
 $ gpg --recv-keys 7E045F8D
@@ -113,7 +112,6 @@ pub   1024D/0F6C91D2 2007-12-01
       Key fingerprint = 2FBB 91BC AAEE 0ABE 1F80  31C7 D1AF BCE0 0F6C 91D2
 uid                  DNSSEC Manager <dnssec@iana.org>
 sub   2048g/1975679E 2007-12-01
-
 ```
 
 ```sh
@@ -123,8 +121,8 @@ $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0xFBB75451 0xEFE21092
 ```
 
 ```sh
-$ gzip -d git-2.17.1.tar.gz
-$ gpg --verify git-2.17.1.tar.sign git-2.17.1.tar
+gzip -d git-2.17.1.tar.gz
+gpg --verify git-2.17.1.tar.sign git-2.17.1.tar
 ```
 
 ```sh
@@ -133,27 +131,25 @@ http://knoppix.net/wiki/Downloading_FAQ#What_are_these_asc_files.3F
 $ gpg --keyserver pool.sks-keyservers.net --search-keys "Klaus Knopper"
 ```
 
-
-### ldapsearch
+## ldapsearch
 
 ```sh
-$ ldapsearch -LLL -H ldap://ldap.example.jp/ -x -b 'ou=People,dc=hoge,dc=example,dc=net' uid=admin
+$ ldapsearch -LLL -x -b 'ou=People,dc=hoge,dc=example,dc=net' uid=admin \
+   -H ldap://ldap.example.jp/
 $ ldapsearch -LLL -x -W -b 'dc=hoge,dc=example,dc=net' uidNumber=1001 uid
 $ ldapsearch -LLL -x -b 'ou=Group,dc=hoge,dc=example,dc=net' 'cn=SuperAdmin' memberUid
 ```
 
-
-### nmap
+## nmap
 
 ```sh
-$ nmap -sP 10.0.0.0/25
-$ nmap -sS -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
-$ nmap -sT -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
-$ nmap -sU -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
+nmap -sP 10.0.0.0/25
+nmap -sS -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
+nmap -sT -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
+nmap -sU -P0 -r -p 1-65535 --min-hostgroup 256 ${addrs}
 ```
 
-
-### rsync
+## rsync
 
 ```sh
 $ rsync -azvn --delete --force --ignore-errors -e ssh /from/dir/ target.local:/to/dir/
@@ -182,8 +178,7 @@ $ rsync -azv -e ssh --checksum     /from/dir/ target.local:/to/dir/
 $ rsync -azv -e ssh --bwlimit=4096 /from/dir/ target.local:/to/dir/
 ```
 
-
-### snmp
+## snmp
 
 ```sh
 $ snmptranslate -On IF-MIB::ifEntry
@@ -199,14 +194,13 @@ UCD-SNMP-MIB::prTable
 ```
 
 ```sh
-$ snmpbulkwalk -v2c -c ${community} localhost system
-$ snmpbulkwalk -v2c -c ${community} localhost IF-MIB::ifEntry
-$ snmpbulkwalk -v2c -c ${community} localhost HOST-RESOURCES-MIB::hrStorage
-$ snmpbulkwalk -v2c -c ${community} localhost UCD-SNMP-MIB::extEntry
+snmpbulkwalk -v2c -c ${community} localhost system
+snmpbulkwalk -v2c -c ${community} localhost IF-MIB::ifEntry
+snmpbulkwalk -v2c -c ${community} localhost HOST-RESOURCES-MIB::hrStorage
+snmpbulkwalk -v2c -c ${community} localhost UCD-SNMP-MIB::extEntry
 ```
 
-
-### ssh
+## ssh
 
 ```sh
 $ ssh -gL 13389:windows.local:3389 -p 1022 user@home.local
@@ -215,18 +209,18 @@ $ ssh -oConnectTimeout=15 -oBatchMode=yes -oStrictHostKeyChecking=no \
       common.local
 ```
 
-
-### sudo
+## sudo
 
 ```sh
 $ sudo -i
 $ sudo crontab -l -u root
+
+example add to file
 $ sudo sh -c "dig +noall +answer +add @d.root-servers.net . ns > conf/named.root"
 $ dig +noall +answer +add @d.root-servers.net . ns | sudo tee conf/named.root
 ```
 
-
-### tcpdump
+## tcpdump
 
 ```sh
 $ sudo tcpdump -lnni eth1 -p    dst port 53 and dst  169.254.0.100
@@ -249,10 +243,8 @@ $ sudo tcpdump -lnni eth0 -p -s0 port 25 -w /var/tmp/dumpfile
 $ sudo tcpdump -r /var/tmp/dumpfile -X
 ```
 
-
-### MISC
+## MISC
 
 ```sh
-$ LANG=C df --portability
+LANG=C df --portability
 ```
-
