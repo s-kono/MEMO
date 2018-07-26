@@ -1,5 +1,6 @@
+# x
 
-##  rpm
+## rpm
 
 ```sh
 $ rpm -qa | less
@@ -73,13 +74,13 @@ rpmlib(PayloadIsXz) <= 5.2-1
 ```
 
 ```sh
-$ sudo rpm -ivH https://..../xxxx.rpm
-$ sudo rpm -UvH https://..../xxxx.rpm
+sudo rpm -ivH https://..../xxxx.rpm
+sudo rpm -UvH https://..../xxxx.rpm
 ```
 
 ```sh
-$ sudo rpm -e httpd
-$ sudo rpm -e --nodeps httpd
+sudo rpm -e httpd
+sudo rpm -e --nodeps httpd
 ```
 
 ```sh
@@ -114,7 +115,6 @@ $ ls ./usr/bin/htdigest
 342 blocks
 ```
 
-
 ## yum
 
 ```sh
@@ -128,7 +128,7 @@ $ sudo yum update -y
 ```
 
 ```sh
-$ sudo yum remove httpd
+sudo yum remove httpd
 ```
 
 ### docker-ce
@@ -143,4 +143,3 @@ $ sudo yum -y install epel-release \
   && sudo docker pull centos:7 \
   && sudo docker images
 ```
-
