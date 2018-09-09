@@ -35,5 +35,5 @@
 | スタートアップ | %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup |
 | フォント | %windir%\Fonts |
 | hosts | %windir%\System32\drivers\etc\hosts |
-| FQDN? | %COMPUTERNAME%.%USERDNSDOMAIN% |
+| ドメイン参加時の FQDN? | %COMPUTERNAME%.%USERDNSDOMAIN% |
 
