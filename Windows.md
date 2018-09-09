@@ -16,12 +16,12 @@
 | %CommonProgramW6432% | C:\Program Files\Common Files |
 | %ProgramFiles(x86)% | C:\Program Files (x86) |
 | %CommonProgramFiles(x86)% | C:\Program Files (x86)\Common Files |
-| %HOMEPATH% | \Users\%USERNAME% |
-| %USERPROFILE% | C:\Users\%USERNAME% |
-| %LOCALAPPDATA% | C:\Users\%USERNAME%\AppData\Local |
-| %TMP% | C:\Users\%USERNAME%\AppData\Local\Temp |
-| %TEMP% | C:\Users\%USERNAME%\AppData\Local\Temp |
-| %APPDATA% | C:\Users\%USERNAME%\AppData\Roaming |
+| %HOMEPATH% | \Users\\%USERNAME% |
+| %USERPROFILE% | C:\Users\\%USERNAME% |
+| %LOCALAPPDATA% | C:\Users\\%USERNAME%\AppData\Local |
+| %TMP% | C:\Users\\%USERNAME%\AppData\Local\Temp |
+| %TEMP% | C:\Users\\%USERNAME%\AppData\Local\Temp |
+| %APPDATA% | C:\Users\\%USERNAME%\AppData\Roaming |
 | %PUBLIC% | C:\Users\Public |
 | %SystemRoot% | C:\Windows |
 | %windir% | C:\Windows |
