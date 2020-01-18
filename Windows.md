@@ -33,10 +33,11 @@
 | リンク | %USERPROFILE%\Favorites\リンク |
 | タスクバー | %APPDATA%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar |
 | SendTo | %APPDATA%\Microsoft\Windows\SendTo |
-| プログラム | %APPDATA%\Microsoft\Windows\Start Menu\Programs |
-| スタートアップ | %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup |
+| プログラム | %ProgramData%\Microsoft\Windows\Start Menu\Programs |
+| スタートアップ | %ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup |
+| プログラム (ユーザ) | %APPDATA%\Microsoft\Windows\Start Menu\Programs |
+| スタートアップ (ユーザ) | %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup |
 | フォント | %windir%\Fonts |
 | hosts | %windir%\System32\drivers\etc\hosts |
 | ドメイン参加時の FQDN? | %COMPUTERNAME%.%USERDNSDOMAIN% |
 | Chrome Flash フォルダ | %USERPROFILE%\AppData\Local\Google\Chrome\User Data\PepperFlash |
-
